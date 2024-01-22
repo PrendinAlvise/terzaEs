@@ -40,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, InfoActivity.class);
         startActivity(intent);
     }
+
+    public void apriRisultatoActivity(View view) {
+        Intent intent = new Intent(this, RisultatoActivity.class);
+        startActivity(intent);
+    }
+
+    
     public void calcola(View v)
     {
         String strNum1 = number1.getText().toString();
@@ -70,9 +77,5 @@ public class MainActivity extends AppCompatActivity {
         dbHelper.salvaOper(Integer.parseInt(strNum1), Integer.parseInt(strNum2), oper, res);
     }
 
-    public void apriRisultatoActivity(View view) {
-        Intent intent = new Intent(this, RisultatoActivity.class);
-        startActivity(intent);
-    }
-
+    
 }
