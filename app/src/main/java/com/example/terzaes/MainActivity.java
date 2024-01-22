@@ -34,9 +34,6 @@ public class MainActivity extends AppCompatActivity {
         number1 = findViewById(R.id.number1);
         number2 = findViewById(R.id.number2);
         operando = findViewById(R.id.operando);
-
-        Button btnInfo= findViewById(R.id.btnInfo);
-        Button btnvisualizzaRisultato= findViewById(R.id.btnVisualizzaRisultato);
     }
 
     public void apriInfo(View view) {
