@@ -39,18 +39,6 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long salvaOper(int n1, int n2, String oper, int ris) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_NUMERO1, n1);
-        values.put(COLUMN_NUMERO2, n2);
-        values.put(COLUMN_OPERAZIONE, oper);
-        values.put(COLUMN_RISULTATO, ris);
-        long id = db.insert(TABLE_NAME, null, values);
-        db.close();
-        return id;
-    }
-
     @SuppressLint("Range")
     public int getUltimoRisultato() {
     SQLiteDatabase db = getReadableDatabase();
@@ -71,4 +59,18 @@ public class DBHelper extends SQLiteOpenHelper {
 
     return ultimoRisultato;
 }
+
+    public long salvaOper(int n1, int n2, String oper, int ris) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NUMERO1, n1);
+        values.put(COLUMN_NUMERO2, n2);
+        values.put(COLUMN_OPERAZIONE, oper);
+        values.put(COLUMN_RISULTATO, ris);
+        long id = db.insert(TABLE_NAME, null, values);
+        db.close();
+        return id;
+    }
+    
+    
 }
