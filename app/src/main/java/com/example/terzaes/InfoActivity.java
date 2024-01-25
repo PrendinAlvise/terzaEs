@@ -7,15 +7,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class InfoActivity extends AppCompatActivity {
 
-    @Override
+    
+    public void navigateToMainActivity(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
     }
-
-    public void tornaAllaMainActivity(View view) {
-        Intent intent = new Intent(this, com.example.terzaes.MainActivity.class);
-        startActivity(intent);
-
-    }
+    
 }
