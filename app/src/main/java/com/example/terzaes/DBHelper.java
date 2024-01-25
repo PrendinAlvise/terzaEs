@@ -18,11 +18,12 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_OPERAZIONE = "operazione";
     private static final String COLUMN_RISULTATO = "risultato";
 
+    //costruttore
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    @Override
+    //creo la tabella nel database
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -33,12 +34,14 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE);
     }
 
-    @Override
+    //elimino la tabella per poi farne una nuova
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
+
+    
     @SuppressLint("Range")
     public int getUltimoRisultato() {
     SQLiteDatabase db = getReadableDatabase();
@@ -60,6 +63,7 @@ public class DBHelper extends SQLiteOpenHelper {
     return ultimoRisultato;
 }
 
+    
     public long salvaOper(int n1, int n2, String oper, int ris) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
