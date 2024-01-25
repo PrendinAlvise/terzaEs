@@ -52,22 +52,23 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
-    public int getUltimoRis() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        int ultimoRis = 0;
+    public int getUltimoRisultato() {
+    SQLiteDatabase db = getReadableDatabase();
+    int ultimoRisultato = 0;
 
-        String query = "SELECT " + COLUMN_RISULTATO + " FROM " + TABLE_NAME +
-                " ORDER BY " + COLUMN_ID + " DESC LIMIT 1";
+    String query = "SELECT " + COLUMN_RISULTATO +
+                   " FROM " + TABLE_NAME +
+                   " ORDER BY " + COLUMN_ID + " DESC LIMIT 1";
 
-        Cursor cursor = db.rawQuery(query, null);
+    Cursor cursor = db.rawQuery(query, null);
 
-        if (cursor.moveToFirst()) {
-            ultimoRis = cursor.getInt(cursor.getColumnIndex(COLUMN_RISULTATO));
-        }
-
-        cursor.close();
-        db.close();
-
-        return ultimoRis;
+    if (cursor.moveToFirst()) {
+        ultimoRisultato = cursor.getInt(cursor.getColumnIndex(COLUMN_RISULTATO));
     }
+
+    cursor.close();
+    db.close();
+
+    return ultimoRisultato;
+}
 }
