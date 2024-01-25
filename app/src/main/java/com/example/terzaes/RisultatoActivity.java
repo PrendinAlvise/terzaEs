@@ -1,8 +1,6 @@
-package com.example.terzaes.;
+package com.example.terzaes;
 
 import android.annotation.SuppressLint;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -20,8 +18,8 @@ public class RisultatoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_risultato);
         txtRisultato = findViewById(R.id.txtRisultato);
 
-        com.example.terzaes.DBHelper dbHelper = new com.example.terzaes.DBHelper(this);
-        int ultimoRisultato = dbHelper.getUltimoRis();
+        DBHelper dbHelper = new DBHelper(this);
+        int ultimoRisultato = dbHelper.getUltimoRisultato();
         txtRisultato.setText("Ultimo risultato: " + ultimoRisultato);
     }
 
